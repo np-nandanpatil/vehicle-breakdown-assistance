@@ -1,0 +1,27 @@
+{
+  "name": "vehicle-breakdown-assistance",
+  "version": "1.0.0",
+  "description": "24/7 Vehicle Breakdown Assistance Platform - Full Stack Application",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm start -w backend",
+    "test": "npm test -w backend",
+    "lint": "eslint . --ext .js"
+  },
+  "workspaces": [
+    "backend",
+    "admin"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "eslint": "^8.49.0"
+  },
+  "keywords": [
+    "vehicle",
+    "breakdown",
+    "assistance",
+    "roadside"
+  ]
+}

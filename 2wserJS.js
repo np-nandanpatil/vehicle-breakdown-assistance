@@ -1,67 +1,96 @@
 document.addEventListener("DOMContentLoaded", function() {
     const problemData = {
-       "flat-tire": `
+    "flat-tire": `
     <h3>Flat Tire</h3>
-    <ol>
-        <li><a href="https://youtu.be/JBf7iExWp8Q?si=yPfQt75LY6B0TX1T" target="_blank">A flat tire can be fixed temporarily using a spare tire or a tire repair kit. First, safely pull over and use a jack to lift the vehicle. Remove the flat tire and replace it with the spare, tightening the lug nuts securely. If using a repair kit, follow the instructions to seal the puncture. To prevent future flats, regularly inspect your tires for proper inflation, tread wear, and any damage. Keep the tires rotated and balanced every 5,000 to 8,000 miles, and replace them when the tread depth is below 2/32 of an inch. Keeping a tire pressure monitoring system can also help you stay ahead of potential issues.</a></li>
-    </ol>
+    <p>Move to a safe spot, lift the bike, plug the puncture or swap the tube, and torque the wheel evenly before riding away.</p>
+    <p>Ride with proper pressure, inspect tread weekly, and keep a compact repair kit onboard.</p>
+    <a class="solution-button" href="https://youtu.be/JBf7iExWp8Q?si=yPfQt75LY6B0TX1T" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"dead-battery": `
+    "dead-battery": `
     <h3>Dead Battery</h3>
-    <ol>
-        <li><a href="https://youtu.be/OiYzmVhgm2s?si=U9nIKrFsMrD-Hh26" target="_blank">A dead battery can be revived by jump-starting with another vehicle or a portable battery jumper. Connect the positive and negative terminals correctly and start the engine of the working vehicle, then your car. Drive for at least 20 minutes to recharge the battery. If it doesn’t hold a charge, have the battery and alternator tested at an auto parts store. To prevent this issue, ensure battery terminals are clean and connections are tight. Regularly check the battery’s health and replace it every 3-5 years. Avoid leaving lights or electronics on when the engine is off.</a></li>
-    </ol>
+    <p>Jump-start using a charged battery or booster pack, match terminals correctly, and idle for 20 minutes to recover charge.</p>
+    <p>Clean clamps, test charging voltage, and replace cells older than three years.</p>
+    <a class="solution-button" href="https://youtu.be/OiYzmVhgm2s?si=U9nIKrFsMrD-Hh26" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"engine-overheating": `
+    "engine-overheating": `
     <h3>Engine Overheating</h3>
-    <ol>
-        <li><a href="https://youtu.be/Gz8116snAaw?si=4AqHZPg0kjkbh19i" target="_blank">Engine overheating requires immediate action: stop driving, let the engine cool, and check the coolant level. Refill if it's low, and inspect for leaks in the radiator or hoses. Ensure the radiator fans are operational. Preventive measures include regular maintenance of the cooling system, such as flushing the radiator, replacing hoses, and using the correct coolant mix. Avoid heavy loads and high speeds, especially in hot weather. Monitoring the temperature gauge and addressing any issues promptly can prevent severe engine damage.</a></li>
-    </ol>
+    <p>Shut the engine down, cool it completely, top coolant to the fill line, and inspect hoses, caps, and fans for leaks or failure.</p>
+    <p>Flush the system on schedule and avoid heavy loads in slow traffic.</p>
+    <a class="solution-button" href="https://youtu.be/Gz8116snAaw?si=4AqHZPg0kjkbh19i" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"chain-issues": `
+    "chain-issues": `
     <h3>Chain Issues</h3>
-    <ol>
-        <li><a href="https://youtu.be/VBRffCgdUNM?si=gDuev_b9x5WEWq3h" target="_blank">Chain issues, common in motorcycles or bicycles, require regular inspection and maintenance. If the chain is loose or making noise, adjust the tension according to the manufacturer's specifications. Clean the chain regularly to remove dirt and debris, and lubricate it with the appropriate chain oil to ensure smooth operation. Replace the chain if it shows signs of excessive wear or damage. Ensuring the sprockets are in good condition and properly aligned can also prevent chain problems and extend its lifespan.</a></li>
-    </ol>
+    <p>Adjust slack to manufacturer specs, clean with kerosene, and lubricate hot to seat grease between rollers.</p>
+    <p>Replace chains and sprockets together when teeth hook or links bind.</p>
+    <a class="solution-button" href="https://youtu.be/VBRffCgdUNM?si=gDuev_b9x5WEWq3h" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"fuel-issues": `
+    "fuel-issues": `
     <h3>Fuel Issues</h3>
-    <ol>
-        <li><a href="https://youtu.be/nzwx8H_7jnA?si=3CmdY1Z1DSThvY2L" target="_blank">Fuel issues can range from a clogged fuel filter to a failing fuel pump. If the engine sputters or loses power, check the fuel filter first and replace it if necessary. For fuel pump problems, test the fuel pressure and replace the pump if the pressure is low. Keeping your fuel tank at least a quarter full helps prevent debris from clogging the filter and reduces strain on the pump. Using high-quality fuel and regularly cleaning the fuel system can prevent many common fuel-related problems.</a></li>
-    </ol>
+    <p>Swap clogged filters, test pump pressure, and drain stale fuel if misfires or hesitation persist.</p>
+    <p>Use fresh fuel, keep tanks above a quarter, and add cleaner every few months.</p>
+    <a class="solution-button" href="https://youtu.be/nzwx8H_7jnA?si=3CmdY1Z1DSThvY2L" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"electrical-problems": `
+    "electrical-problems": `
     <h3>Electrical Problems</h3>
-    <ol>
-        <li><a href="https://youtu.be/OJUrEnZNeJg?si=Yfg_9q6P2IatLNgc" target="_blank">Electrical problems can manifest as malfunctioning lights, power windows, or stereo systems. Start by checking the fuses and replacing any that are blown. Inspect wiring for damage or loose connections and repair as needed. Test the battery and alternator to ensure they are providing proper voltage. Regular maintenance of the electrical system, including cleaning battery terminals and ensuring all connections are tight, can prevent many issues. For persistent problems, seek professional diagnostic services to pinpoint and fix the underlying cause.</a></li>
-    </ol>
+    <p>Check fuses, trace wiring for corrosion, and verify battery and stator output with a multimeter.</p>
+    <p>Secure grounds and protect connectors with dielectric grease.</p>
+    <a class="solution-button" href="https://youtu.be/OJUrEnZNeJg?si=Yfg_9q6P2IatLNgc" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"braking-issues": `
+    "braking-issues": `
     <h3>Braking Issues</h3>
-    <ol>
-        <li><a href="https://youtu.be/6DoX5Ve1Oiw?si=M7IOj90QFUaoZnAu" target="_blank">Braking issues, such as squeaking or reduced braking power, often stem from worn brake pads or low brake fluid. Inspect the brake pads and replace them if they are worn. Check the brake fluid level and top it off if necessary. If the brakes feel spongy, there might be air in the brake lines, which requires bleeding the brakes. Regularly check the condition of the brake rotors and calipers. Promptly addressing any abnormalities in the braking system ensures reliable performance and safety.</a></li>
-    </ol>
+    <p>Inspect pad thickness, bleed air from lines, and top the master cylinder with the specified DOT fluid.</p>
+    <p>Measure rotor runout and service seized caliper pins promptly.</p>
+    <a class="solution-button" href="https://youtu.be/6DoX5Ve1Oiw?si=M7IOj90QFUaoZnAu" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"clutch-problems": `
+    "clutch-problems": `
     <h3>Clutch Problems</h3>
-    <ol>
-        <li><a href="https://youtu.be/2owO_GhYjzE?si=3uuy0gtSL9L0n6wt" target="_blank">Clutch problems can cause difficulty in changing gears or a slipping clutch. If the clutch pedal feels spongy or stiff, check the clutch fluid level and top it off if necessary. Inspect the clutch cable for any signs of wear and adjust or replace it if needed. For hydraulic clutches, ensure there are no leaks in the system. If the clutch is slipping, it might need to be replaced. Regular maintenance and prompt attention to any changes in clutch performance can prevent major issues.</a></li>
-    </ol>
+    <p>Adjust cable free play, bleed hydraulic systems, and inspect friction plates for glazing if slipping occurs.</p>
+    <p>Lubricate pivot points and renew clutch springs when engagement weakens.</p>
+    <a class="solution-button" href="https://youtu.be/2owO_GhYjzE?si=3uuy0gtSL9L0n6wt" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"exhaust-problems": `
+    "exhaust-problems": `
     <h3>Exhaust Problems</h3>
-    <ol>
-        <li><a href="https://youtu.be/iFrUiwQO7_4?si=w0wacFz_yq5g5G2U" target="_blank">Exhaust problems can lead to increased noise, decreased fuel efficiency, and harmful emissions. Inspect the exhaust system for rust, holes, or loose connections. Replace any damaged components, such as the muffler or catalytic converter. Regularly check the exhaust hangers to ensure the system is securely attached to the vehicle. Using high-quality fuel and keeping the engine in good condition can reduce the likelihood of exhaust system problems. Addressing exhaust issues promptly can improve performance and reduce environmental impact.</a></li>
-    </ol>
+    <p>Locate leaks with a cold start, replace gaskets, and tighten clamps or weld cracked sections.</p>
+    <p>Monitor backpressure after upgrades to protect engine tuning.</p>
+    <a class="solution-button" href="https://youtu.be/iFrUiwQO7_4?si=w0wacFz_yq5g5G2U" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `,
-"suspension-issues": `
+    "suspension-issues": `
     <h3>Suspension Issues</h3>
-    <ol>
-        <li><a href="https://youtu.be/TFqhpvzdI8Q?si=KluvmcgZWu1tnu5m" target="_blank">Suspension issues can cause a bumpy ride, poor handling, or uneven tire wear. Inspect the suspension components, such as shocks, struts, and springs, for signs of wear or damage. Replace any worn parts to restore proper function. Check the alignment and balance of the wheels to ensure even tire wear and smooth handling. Regularly inspecting and maintaining the suspension system can prevent major issues and ensure a comfortable and safe driving experience. Keeping the suspension in good condition also helps to protect other components of the vehicle from excessive wear.</a></li>
-    </ol>
+    <p>Check fork seals for oil rings, set sag with correct preload, and replace leaking shocks.</p>
+    <p>Align wheels and balance tires to prevent chatter.</p>
+    <a class="solution-button" href="https://youtu.be/TFqhpvzdI8Q?si=KluvmcgZWu1tnu5m" target="_blank" rel="noopener noreferrer">Watch Solution</a>
+`,
+    "spark-plug-issues": `
+    <h3>Spark Plug Issues</h3>
+    <p>Remove plugs with a cool engine, inspect gaps, clean or replace fouled tips, and torque to spec.</p>
+    <p>Use the heat range listed in the manual and retest ignition timing.</p>
+    <a class="solution-button" href="https://www.youtube.com/watch?v=52UmlOGAjK8" target="_blank" rel="noopener noreferrer">Watch Solution</a>
+`,
+    "ignition-failure": `
+    <h3>Ignition Failure</h3>
+    <p>Verify kill switch, test ignition switch continuity, and confirm spark at each coil lead.</p>
+    <p>Clean corroded connectors and replace damaged barrels or switches.</p>
+    <a class="solution-button" href="https://www.youtube.com/watch?v=BALdGha_4So" target="_blank" rel="noopener noreferrer">Watch Solution</a>
+`,
+    "oil-leak": `
+    <h3>Oil Leak</h3>
+    <p>Degrease the engine, trace the seep with UV dye, and renew gaskets or seals where oil appears.</p>
+    <p>Torque covers evenly and use manufacturer-approved sealant sparingly.</p>
+    <a class="solution-button" href="https://www.youtube.com/watch?v=J6Pb0EpN5Hg" target="_blank" rel="noopener noreferrer">Watch Solution</a>
+`,
+    "throttle-response-problems": `
+    <h3>Poor Throttle Response</h3>
+    <p>Inspect cable slack, sync carbs or balance throttle bodies, and clean idle jets to remove lag.</p>
+    <p>Replace clogged air filters and reset ECU trims if required.</p>
+    <a class="solution-button" href="https://www.youtube.com/watch?v=FQJSS3RhDqw" target="_blank" rel="noopener noreferrer">Watch Solution</a>
+`,
+    "starter-motor-failure": `
+    <h3>Starter Motor Failure</h3>
+    <p>Test battery voltage under load, check solenoid continuity, and bench-test the starter for slow rotation.</p>
+    <p>Clean commutators, replace worn brushes, or fit a new starter where necessary.</p>
+    <a class="solution-button" href="https://www.youtube.com/watch?v=hlClh8n1e-4" target="_blank" rel="noopener noreferrer">Watch Solution</a>
 `
 };
-
 document.querySelectorAll('tbody tr').forEach(row => {
     row.addEventListener('click', function() {
         const problem = this.getAttribute('data-problem');
