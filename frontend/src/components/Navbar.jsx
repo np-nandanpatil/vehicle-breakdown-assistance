@@ -24,8 +24,8 @@ export default function Navbar({ user, isAdmin }) {
         <Link to="/" className="nav-brand">
           🚗 VBA
         </Link>
-        
-        <button 
+
+        <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
         >
@@ -34,7 +34,7 @@ export default function Navbar({ user, isAdmin }) {
 
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
           <li><Link to="/">Home</Link></li>
-          
+
           {isAdmin ? (
             <>
               <li><Link to="/admin">Dashboard</Link></li>
@@ -56,7 +56,6 @@ export default function Navbar({ user, isAdmin }) {
             <>
               <li><Link to="/login">Login</Link></li>
               <li><Link to="/register">Register</Link></li>
-              <li><Link to="/admin/login">Admin Login</Link></li>
             </>
           )}
         </ul>
