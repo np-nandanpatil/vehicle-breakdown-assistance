@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from './config/firebase';
 
 // Components
@@ -19,6 +19,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import VerifyEmail from './pages/auth/VerifyEmail';
 
 // User Pages
 import Dashboard from './pages/user/Dashboard';
@@ -59,6 +60,40 @@ export default function App() {
     return () => unsubscribe();
   }, []);
 
+  // Track user activity for session management
+  useEffect(() => {
+    if (!user) return;
+
+    const updateActivity = async () => {
+      try {
+        await updateDoc(doc(db, 'users', user.uid), {
+          lastActive: new Date()
+        });
+      } catch (error) {
+        console.error('Error updating activity:', error);
+      }
+    };
+
+    // Update activity every 5 minutes
+    const activityInterval = setInterval(updateActivity, 5 * 60 * 1000);
+
+    // Update on user interaction
+    const handleActivity = () => {
+      updateActivity();
+    };
+
+    window.addEventListener('click', handleActivity);
+    window.addEventListener('keypress', handleActivity);
+    window.addEventListener('scroll', handleActivity);
+
+    return () => {
+      clearInterval(activityInterval);
+      window.removeEventListener('click', handleActivity);
+      window.removeEventListener('keypress', handleActivity);
+      window.removeEventListener('scroll', handleActivity);
+    };
+  }, [user]);
+
   if (loading) {
     return <Loading />;
   }
@@ -78,6 +113,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
             <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
 
             {/* Admin Routes */}
             <Route path="/admin/login" element={isAdmin ? <Navigate to="/admin" /> : <AdminLogin />} />

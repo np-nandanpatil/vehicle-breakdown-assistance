@@ -394,34 +394,159 @@ main {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+  /* Typography - smaller on mobile */
   h1 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
   }
 
   h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
     font-size: 1.25rem;
   }
 
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Container padding for mobile */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Buttons - touch-friendly but not too large */
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+    /* iOS recommended */
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .btn-emergency {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  /* Forms - prevent zoom but keep compact */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    padding: 0.75rem;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Navigation */
   .nav-links {
     gap: 1rem;
   }
 
+  /* Grids - single column */
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
+  /* Hero section - more compact */
   .hero {
-    padding: 2rem 0;
+    padding: 1.5rem 1rem;
   }
 
   .hero h1 {
     font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Cards - more compact */
+  .card {
+    padding: 1rem;
+  }
+
+  /* Auth pages */
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .auth-form {
+    padding: 1.25rem;
+    max-width: 100%;
+  }
+
+  .auth-form h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Main content padding */
+  main {
+    padding: 1rem 0;
+  }
+}
+
+/* Extra small devices - even more compact */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.35rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .hero {
+    padding: 1rem 0.75rem;
+  }
+
+  .card {
+    padding: 0.875rem;
   }
 }
 

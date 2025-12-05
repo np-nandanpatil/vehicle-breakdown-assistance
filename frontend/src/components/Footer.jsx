@@ -23,8 +23,12 @@ export default function Footer() {
 
           <div className="footer-section">
             <h3>Contact</h3>
-            <p>Email: shreeharshag027@gmail.com</p>
-            <p>Phone: 7019669276-HELP</p>
+            <p>
+              Email: <a href="mailto:shreeharshag027@gmail.com" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>shreeharshag027@gmail.com</a>
+            </p>
+            <p>
+              Phone: <a href="tel:7019669276" style={{ color: '#cbd5e1', textDecoration: 'underline' }}>7019669276</a>
+            </p>
             <p>Available 24/7</p>
           </div>
         </div>
