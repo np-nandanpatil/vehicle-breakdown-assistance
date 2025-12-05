@@ -55,8 +55,10 @@ git push origin main
 
 Your app will be available at:
 ```
-https://np-nandanpatil.github.io/vehicle-breakdown-assistance/
+https://shreeharsha018.github.io/vehicle-breakdown-assistance/
 ```
+
+**Note:** Replace `shreeharsha018` with your GitHub username if different.
 
 ---
 
