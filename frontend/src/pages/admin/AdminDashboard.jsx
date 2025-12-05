@@ -108,6 +108,9 @@ export default function AdminDashboard() {
       <div className="card" style={{ marginTop: '3rem', padding: '2rem' }}>
         <h2>Quick Actions</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+          <Link to="/admin/import-data" className="btn" style={{ background: '#f59e0b', color: 'white' }}>
+            📦 Import Existing Data
+          </Link>
           <Link to="/admin/users" className="btn btn-primary">
             👥 View All Users
           </Link>

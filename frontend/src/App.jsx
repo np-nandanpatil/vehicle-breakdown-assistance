@@ -38,6 +38,7 @@ import ViewFeedback from './pages/admin/ViewFeedback';
 import ViewAssistanceRequests from './pages/admin/ViewAssistanceRequests';
 import ViewUsers from './pages/admin/ViewUsers';
 import ViewUserDetails from './pages/admin/ViewUserDetails';
+import ImportFallbackData from './pages/admin/ImportFallbackData';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -146,6 +147,10 @@ export default function App() {
             <Route
               path="/admin/users/:userId"
               element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ViewUserDetails /></ProtectedRoute>}
+            />
+            <Route
+              path="/admin/import-data"
+              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ImportFallbackData /></ProtectedRoute>}
             />
 
             {/* User Routes - Dashboard requires login */}

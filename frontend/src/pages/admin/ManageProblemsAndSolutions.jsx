@@ -9,6 +9,8 @@ export default function ManageProblemsAndSolutions() {
     const [message, setMessage] = useState('');
     const [showProblemForm, setShowProblemForm] = useState(false);
     const [showSolutionForm, setShowSolutionForm] = useState(false);
+    const [vehicleFilter, setVehicleFilter] = useState('all');
+    const [searchQuery, setSearchQuery] = useState('');
 
     const [problemForm, setProblemForm] = useState({
         title: '',
@@ -41,6 +43,20 @@ export default function ManageProblemsAndSolutions() {
         }
     };
 
+    const filteredProblems = problems.filter(problem => {
+        if (vehicleFilter !== 'all' && problem.vehicleType !== vehicleFilter) {
+            return false;
+        }
+        if (searchQuery && !problem.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+            return false;
+        }
+        return true;
+    });
+
+    const getVehicleCount = (vehicleType) => {
+        return problems.filter(p => p.vehicleType === vehicleType).length;
+    };
+
     const handleProblemSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -69,7 +85,6 @@ export default function ManageProblemsAndSolutions() {
         setMessage('');
 
         try {
-            // Create solution document
             const solutionDoc = await addDoc(collection(db, 'solutions'), {
                 problemId: selectedProblem.id,
                 description: solutionForm.description,
@@ -80,7 +95,6 @@ export default function ManageProblemsAndSolutions() {
                 createdAt: new Date()
             });
 
-            // Update problem with solution reference
             await updateDoc(doc(db, 'problems', selectedProblem.id), {
                 solutionId: solutionDoc.id
             });
@@ -150,7 +164,6 @@ export default function ManageProblemsAndSolutions() {
                 </div>
             )}
 
-            {/* Add Problem Button */}
             <div style={{ marginBottom: '2rem' }}>
                 <button
                     onClick={() => setShowProblemForm(!showProblemForm)}
@@ -160,7 +173,6 @@ export default function ManageProblemsAndSolutions() {
                 </button>
             </div>
 
-            {/* Add Problem Form */}
             {showProblemForm && (
                 <div className="card" style={{ marginBottom: '2rem' }}>
                     <h2>Add New Problem</h2>
@@ -207,14 +219,84 @@ export default function ManageProblemsAndSolutions() {
                 </div>
             )}
 
-            {/* Problems List */}
+            <div className="card" style={{ marginBottom: '1rem' }}>
+                <h3>Filter & Search</h3>
+
+                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                    <button
+                        className={`btn ${vehicleFilter === 'all' ? 'btn-primary' : 'btn-secondary'}`}
+                        onClick={() => setVehicleFilter('all')}
+                    >
+                        All ({problems.length})
+                    </button>
+                    <button
+                        className={`btn ${vehicleFilter === '2-wheeler' ? 'btn-primary' : 'btn-secondary'}`}
+                        onClick={() => setVehicleFilter('2-wheeler')}
+                    >
+                        🏍️ 2-Wheeler ({getVehicleCount('2-wheeler')})
+                    </button>
+                    <button
+                        className={`btn ${vehicleFilter === '3-wheeler' ? 'btn-primary' : 'btn-secondary'}`}
+                        onClick={() => setVehicleFilter('3-wheeler')}
+                    >
+                        🛺 3-Wheeler ({getVehicleCount('3-wheeler')})
+                    </button>
+                    <button
+                        className={`btn ${vehicleFilter === '4-wheeler' ? 'btn-primary' : 'btn-secondary'}`}
+                        onClick={() => setVehicleFilter('4-wheeler')}
+                    >
+                        🚗 4-Wheeler ({getVehicleCount('4-wheeler')})
+                    </button>
+                </div>
+
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                    <input
+                        type="text"
+                        placeholder="🔍 Search problems by title..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        style={{ width: '100%' }}
+                    />
+                </div>
+            </div>
+
             <div className="card">
-                <h2>All Problems</h2>
-                {problems.length === 0 ? (
-                    <p style={{ color: '#64748b', marginTop: '1rem' }}>No problems added yet.</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <h2>Problems ({filteredProblems.length})</h2>
+                    {(vehicleFilter !== 'all' || searchQuery) && (
+                        <button
+                            onClick={() => {
+                                setVehicleFilter('all');
+                                setSearchQuery('');
+                            }}
+                            className="btn btn-secondary"
+                            style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
+                        >
+                            ✕ Clear Filters
+                        </button>
+                    )}
+                </div>
+
+                {filteredProblems.length === 0 ? (
+                    <div style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
+                        <p style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🔍</p>
+                        <p>No problems found matching your filters.</p>
+                        {(vehicleFilter !== 'all' || searchQuery) && (
+                            <button
+                                onClick={() => {
+                                    setVehicleFilter('all');
+                                    setSearchQuery('');
+                                }}
+                                className="btn btn-primary"
+                                style={{ marginTop: '1rem' }}
+                            >
+                                Clear Filters
+                            </button>
+                        )}
+                    </div>
                 ) : (
                     <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
-                        {problems.map(problem => (
+                        {filteredProblems.map(problem => (
                             <div
                                 key={problem.id}
                                 style={{
@@ -278,7 +360,6 @@ export default function ManageProblemsAndSolutions() {
                 )}
             </div>
 
-            {/* Add Solution Modal */}
             {showSolutionForm && selectedProblem && (
                 <div style={{
                     position: 'fixed',
