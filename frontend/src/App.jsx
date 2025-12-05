@@ -33,10 +33,11 @@ import ViewAllFeedback from './pages/user/ViewAllFeedback';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ManageVehicles from './pages/admin/ManageVehicles';
-import ManageProblems from './pages/admin/ManageProblems';
-import ManageSolutions from './pages/admin/ManageSolutions';
+import ManageProblemsAndSolutions from './pages/admin/ManageProblemsAndSolutions';
 import ViewFeedback from './pages/admin/ViewFeedback';
 import ViewAssistanceRequests from './pages/admin/ViewAssistanceRequests';
+import ViewUsers from './pages/admin/ViewUsers';
+import ViewUserDetails from './pages/admin/ViewUserDetails';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -128,11 +129,7 @@ export default function App() {
             />
             <Route
               path="/admin/problems"
-              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ManageProblems /></ProtectedRoute>}
-            />
-            <Route
-              path="/admin/solutions"
-              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ManageSolutions /></ProtectedRoute>}
+              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ManageProblemsAndSolutions /></ProtectedRoute>}
             />
             <Route
               path="/admin/feedback"
@@ -141,6 +138,14 @@ export default function App() {
             <Route
               path="/admin/assistance-requests"
               element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ViewAssistanceRequests /></ProtectedRoute>}
+            />
+            <Route
+              path="/admin/users"
+              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ViewUsers /></ProtectedRoute>}
+            />
+            <Route
+              path="/admin/users/:userId"
+              element={<ProtectedRoute isAllowed={isAdmin} redirectPath="/admin/login"><ViewUserDetails /></ProtectedRoute>}
             />
 
             {/* User Routes - Dashboard requires login */}

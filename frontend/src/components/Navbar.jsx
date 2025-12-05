@@ -12,9 +12,11 @@ export default function Navbar({ user, isAdmin }) {
     try {
       await signOut(auth);
       setMobileMenuOpen(false);
-      navigate('/');
+      // Force reload to clear all state
+      window.location.href = '/';
     } catch (error) {
       console.error('Error logging out:', error);
+      alert('Failed to logout. Please try again.');
     }
   };
 
