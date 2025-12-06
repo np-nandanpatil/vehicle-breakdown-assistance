@@ -557,7 +557,7 @@ export const fallbackProblemsByVehicle = {
         ],
         tools: ["Brake fluid", "Brake bleeder kit", "Torque wrench"],
         precautions: "Replace all four brake pads at once for even braking.",
-
+        videoLink: "https://www.youtube.com/watch?v=w74lLLfR0p8"
       }
     },
     {
