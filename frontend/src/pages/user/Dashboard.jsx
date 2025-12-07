@@ -163,6 +163,24 @@ export default function Dashboard() {
               🔧 Step-by-step guidance
             </span>
           </div>
+          <button
+            onClick={() => {
+              // Trigger chat widget to open
+              const chatButton = document.querySelector('.chat-button');
+              if (chatButton) chatButton.click();
+            }}
+            className="btn btn-primary"
+            style={{
+              marginTop: '1rem',
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            🤖 Start Chat
+          </button>
           <p style={{ fontSize: '0.85rem', marginTop: '1rem', color: 'var(--text-tertiary)' }}>
             Click the chat button below to start 👇
           </p>
