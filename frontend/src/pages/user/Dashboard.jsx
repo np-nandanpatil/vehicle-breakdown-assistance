@@ -5,7 +5,6 @@ import { db } from '../../config/firebase';
 import { Link } from 'react-router-dom';
 import ChatWidget from '../../components/AIChat/ChatWidget';
 import CarIcon from '../../components/CarIcon';
-import './Dashboard.css';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);

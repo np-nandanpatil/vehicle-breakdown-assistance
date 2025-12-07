@@ -4,7 +4,6 @@ import garageService from '../../services/garageService';
 import { getCurrentLocation } from '../../utils/locationUtils';
 import GarageMap from '../../components/GarageMap';
 import CarIcon from '../../components/CarIcon';
-import './FindGarage.css';
 
 export default function FindGarage() {
     const [userLocation, setUserLocation] = useState(null);

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import CarIcon from '../../components/CarIcon';
-import './AdminDashboard.css';
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({

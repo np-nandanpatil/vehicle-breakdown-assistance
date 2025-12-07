@@ -1,6 +1,6 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CarIcon from '../components/CarIcon';
-import './Services.css';
+import './pages.css';
 
 export default function Services() {
     return (

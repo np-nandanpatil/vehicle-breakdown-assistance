@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import CarIcon from '../../components/CarIcon';
-import './SelectVehicle.css';
 
 export default function SelectVehicle() {
   const navigate = useNavigate();
