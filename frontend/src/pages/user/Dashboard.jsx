@@ -1,6 +1,4 @@
-```javascript
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { auth } from '../../config/firebase';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../config/firebase';

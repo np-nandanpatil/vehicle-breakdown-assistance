@@ -189,7 +189,7 @@ export default function FindGarage() {
                 {/* Vehicle Type Filter */}
                 <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                     {[
-                        { value: 'all', label: 'All Types', icon: <CarIcon size={20} color="currentColor" /> },
+                        { value: 'all', label: 'All Types', icon: '🚗' },
                         { value: '2-wheeler', label: '2-Wheeler', icon: '🏍️' },
                         { value: '3-wheeler', label: '3-Wheeler', icon: '🛺' },
                         { value: '4-wheeler', label: '4-Wheeler', icon: '🚙' },
@@ -208,7 +208,7 @@ export default function FindGarage() {
                                 transition: 'all 0.2s',
                             }}
                         >
-                            {type.icon} {type.label}
+                            {type.value === 'all' ? <CarIcon size={20} color="currentColor" /> : type.icon} {type.label}
                             <span style={{
                                 marginLeft: '8px',
                                 background: selectedVehicleType === type.value ? '#ff6b00' : '#ddd',
