@@ -81,6 +81,15 @@ export default function ChatWidget({ mode = 'diagnostic', problemData = null }) 
         }
     };
 
+    const handleKeyDown = (e) => {
+        // Enter without Shift = send message
+        // Shift + Enter = new line (default textarea behavior)
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSendMessage();
+        }
+    };
+
     const handleQuickAction = (question) => {
         setInputMessage(question);
         setTimeout(() => {
@@ -207,15 +216,16 @@ export default function ChatWidget({ mode = 'diagnostic', problemData = null }) 
                     </div>
 
                     <form onSubmit={handleSendMessage} className="chat-input-container">
-                        <input
+                        <textarea
                             ref={inputRef}
-                            type="text"
                             className="chat-input"
-                            placeholder="Type your message..."
+                            placeholder="Type your message... (Shift+Enter for new line)"
                             value={inputMessage}
                             onChange={(e) => setInputMessage(e.target.value)}
+                            onKeyDown={handleKeyDown}
                             disabled={isLoading}
-                        />
+                            rows={1}
+                        ></textarea>
                         <button
                             type="submit"
                             className="chat-send-button"
