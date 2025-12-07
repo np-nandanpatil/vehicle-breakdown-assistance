@@ -181,9 +181,6 @@ export default function Dashboard() {
           >
             🤖 Start Chat
           </button>
-          <p style={{ fontSize: '0.85rem', marginTop: '1rem', color: 'var(--text-tertiary)' }}>
-            Click the chat button below to start 👇
-          </p>
         </div>
       </div>
 
